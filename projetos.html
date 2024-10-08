@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos</title>
+    <link rel="stylesheet" href="fg.css">
+    <style>
+        .carrossel {
+            position: relative;
+            max-width: 600px; /* Ajuste o tamanho do carrossel */
+            margin: auto;
+            overflow: hidden;
+        }
+        .imagens {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .imagem {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .botao {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1000;
+        }
+        .botao-esquerda {
+            left: 10px;
+        }
+        .botao-direita {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicial</a></li> 
+            <li><a href="projetos.html">Projetos</a></li> 
+            <li><a href="sobre mim.html">Sobre Mim</a></li> 
+        </ul>
+    </nav>
+</header>
+
+<section id="projetos">
+    <h1>Meus Projetos</h1>
+    <p>Aqui estão alguns dos meus principais projetos desenvolvidos:</p>
+
+   
+
+    <div class="projetos-container">
+        <div class="projeto">
+
+            <div class="carrossel">
+                <button class="botao botao-esquerda" onclick="mudarImagem(-1)">&#10094;</button>
+                <div class="imagens" id="imagens">
+                    <img class="imagem" src="fotos/Capturar.PNG" alt="Imagem do Projeto 1">
+                    <img class="imagem" src="fotos/Capturar2.PNG" alt="Imagem do Projeto 2">
+                    <img class="imagem" src="fotos/Capturar3.PNG" alt="Imagem do Projeto 3">
+                    <img class="imagem" src="fotos/Capturar4.PNG" alt="Imagem do Projeto 4">
+                </div>
+                <button class="botao botao-direita" onclick="mudarImagem(1)">&#10095;</button>
+            </div>
+          
+            <h3>Projeto 1 - Check Car</h3>
+            <p>Nomeado de Check Car, este é um site informativo e avaliativo sobre carros.</p>
+            <p>O site foi criado com o intuito de ajudar pessoas na compra do seu primeiro carro.</p>
+            <p>Ele possui um questionário que o usuário preenche, e o site recomenda três opções de carros que se encaixam na pontuação atingida.</p>
+            <p>Além disso, o site conta com um ranking de carros mais vendidos do ano, notícias do mundo do automobilismo e um catálogo com 11 marcas de veículos, contendo mais de 100 carros disponíveis.</p>
+            <a href="https://github.com/seuusuario/projeto1" target="_blank">Ver no GitHub</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Guilherme. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    let index = 0;
+
+    function mudarImagem(direction) {
+        const imagens = document.getElementById('imagens');
+        const totalImagens = imagens.children.length;
+        index = (index + direction + totalImagens) % totalImagens; // Loop através das imagens
+        imagens.style.transform = `translateX(${-index * 100}%)`;
+    }
+</script>
+
+</body>
+</html>
